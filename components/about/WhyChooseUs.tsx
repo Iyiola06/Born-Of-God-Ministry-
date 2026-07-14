@@ -17,7 +17,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] bg-white rounded-full blur-[200px] pointer-events-none" />
       </div>
@@ -59,8 +59,8 @@ export function WhyChooseUs() {
                     transition={{ duration: 0.4, delay: 0.3 + (index * 0.05) }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 text-white" />
+                    <div className="w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-brand" />
                     </div>
                     <span className="text-white/80 font-light text-sm md:text-base">{feature}</span>
                   </motion.div>

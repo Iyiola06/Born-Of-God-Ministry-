@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function Welcome() {
   return (
-    <section id="about" className="py-32 relative bg-black overflow-hidden">
+    <section id="about" className="py-32 relative bg-brand-black overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -39,7 +39,7 @@ export function Welcome() {
               className="absolute -bottom-8 -right-8 md:-right-12 p-6 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl max-w-[240px]"
             >
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <div className="w-3 h-3 rounded-full bg-brand" />
                 <span className="text-sm font-medium text-white">Sunday Service</span>
               </div>
               <p className="text-sm text-white/70 font-light">Join us this weekend for an encounter with God&apos;s presence.</p>
@@ -74,7 +74,7 @@ export function Welcome() {
             </div>
 
             <div className="mt-12">
-              <Button variant="outline" className="rounded-full h-12 px-6 bg-white/5 border-white/10 text-white hover:bg-white/10 hover:text-white backdrop-blur-md text-base transition-all group">
+              <Button variant="outline" className="rounded-full h-12 px-6 bg-white/5 border-white/10 text-white hover:bg-brand/10 hover:border-brand/50 hover:text-brand backdrop-blur-md text-base transition-all group">
                 Learn More About Our Mission
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>

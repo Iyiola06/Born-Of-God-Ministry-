@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export function WhoWeAre() {
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
@@ -25,7 +25,7 @@ export function WhoWeAre() {
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-black/60 via-transparent to-white/10" />
             </div>
             
             <div className="absolute -inset-4 bg-white/5 rounded-[3rem] blur-2xl -z-10" />

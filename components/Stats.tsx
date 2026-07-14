@@ -37,7 +37,7 @@ const stats = [
 
 export function GlobalImpact() {
   return (
-    <section className="py-32 relative overflow-hidden bg-black">
+    <section className="py-32 relative overflow-hidden bg-brand-black">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
 
@@ -70,8 +70,8 @@ export function GlobalImpact() {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 shadow-inner">
-                    <stat.icon className="w-6 h-6 text-white" />
+                  <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 shadow-inner">
+                    <stat.icon className="w-6 h-6 text-brand" />
                   </div>
                   
                   <div className="text-4xl font-heading font-bold text-white mb-2 tracking-tight">

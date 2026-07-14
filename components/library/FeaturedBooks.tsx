@@ -42,7 +42,7 @@ const featuredBooks: Book[] = [
 
 export function FeaturedBooks() {
   return (
-    <section className="py-24 relative bg-black">
+    <section className="py-24 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,11 +69,10 @@ export function FeaturedBooks() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
               <Dialog>
-                <DialogTrigger
-                  render={
-                    <Card className="group h-full p-6 md:p-8 rounded-[2rem] bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] cursor-pointer overflow-hidden relative text-left">
+                <DialogTrigger className="text-left w-full h-full block">
+                  <Card className="group h-full p-6 md:p-8 rounded-[2rem] bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] cursor-pointer overflow-hidden relative text-left">
                     {/* Subtle glow */}
-                    <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/5 rounded-full blur-[80px] group-hover:bg-white/10 transition-colors duration-500" />
+                    <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-brand/5 rounded-full blur-[80px] group-hover:bg-brand/10 transition-colors duration-500" />
                     
                     <div className="flex flex-col sm:flex-row gap-8 relative z-10">
                       {/* Cover */}
@@ -93,7 +92,7 @@ export function FeaturedBooks() {
                         <Badge variant="outline" className="w-fit bg-white/5 border-white/10 text-white/70 mb-4 px-3 py-1 font-normal">
                           {book.category}
                         </Badge>
-                        <h3 className="text-2xl font-heading font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all">
+                        <h3 className="text-2xl font-heading font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand-soft group-hover:to-brand-light transition-all">
                           {book.title}
                         </h3>
                         <p className="text-white/60 font-medium mb-4">{book.author}</p>
@@ -113,18 +112,17 @@ export function FeaturedBooks() {
                         </div>
 
                         <div className="flex items-center gap-3">
-                          <Button className="flex-1 rounded-full bg-white text-black hover:bg-white/90 h-10 text-sm font-medium">
+                          <div className="flex-1 rounded-full bg-brand text-brand-charcoal flex items-center justify-center hover:bg-brand-light h-10 text-sm font-medium">
                             Read Overview
-                          </Button>
-                          <Button variant="outline" size="icon" className="shrink-0 rounded-full w-10 h-10 bg-white/5 border-white/10 text-white hover:bg-white/10 hover:text-white">
+                          </div>
+                          <div className="shrink-0 rounded-full w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10 text-white hover:bg-brand/10 hover:text-brand hover:border-brand/50 transition-colors">
                             <Download className="w-4 h-4" />
-                          </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </Card>
-                  }
-                />
+                </DialogTrigger>
                 <BookModal book={book} />
               </Dialog>
             </motion.div>

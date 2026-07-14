@@ -24,7 +24,7 @@ const pillars = [
 
 export function Mission() {
   return (
-    <section className="py-32 relative bg-black">
+    <section className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         <motion.div

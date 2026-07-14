@@ -126,7 +126,7 @@ const libraryBooks: Book[] = [
 
 export function BookGrid() {
   return (
-    <section id="library-books" className="py-24 relative bg-black">
+    <section id="library-books" className="py-24 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4 border-b border-white/10 pb-6">
@@ -150,9 +150,9 @@ export function BookGrid() {
           >
             {/* Sort Dropdown placeholder */}
             <select className="bg-white/5 border border-white/10 text-white text-sm rounded-lg px-4 py-2 focus:outline-none focus:ring-1 focus:ring-white/30 backdrop-blur-md appearance-none cursor-pointer pr-8">
-              <option value="newest" className="bg-black text-white">Newest Additions</option>
-              <option value="popular" className="bg-black text-white">Most Downloaded</option>
-              <option value="alpha" className="bg-black text-white">Alphabetical (A-Z)</option>
+              <option value="newest" className="bg-brand-black text-white">Newest Additions</option>
+              <option value="popular" className="bg-brand-black text-white">Most Downloaded</option>
+              <option value="alpha" className="bg-brand-black text-white">Alphabetical (A-Z)</option>
             </select>
           </motion.div>
         </div>
@@ -167,9 +167,8 @@ export function BookGrid() {
               transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
             >
               <Dialog>
-                <DialogTrigger
-                  render={
-                    <div className="group cursor-pointer flex flex-col h-full">
+                <DialogTrigger className="text-left">
+                  <div className="group cursor-pointer flex flex-col h-full">
                     <Card className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-white/5 border-white/10 mb-4 shadow-lg group-hover:shadow-[0_15px_30px_rgba(255,255,255,0.1)] transition-all duration-500">
                       <Image
                         src={book.cover}
@@ -185,19 +184,19 @@ export function BookGrid() {
                         <Badge variant="secondary" className="bg-white/20 hover:bg-white/30 text-white border-none backdrop-blur-md px-2 py-0.5 text-[10px] font-medium tracking-wide">
                           {book.category}
                         </Badge>
-                        <button className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform">
+                        <div className="w-8 h-8 rounded-full bg-brand text-brand-charcoal flex items-center justify-center hover:scale-110 hover:bg-brand-light transition-all">
                           <Download className="w-4 h-4" />
-                        </button>
+                        </div>
                       </div>
                       
                       {/* Quick Favorite */}
-                      <button className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/60 transition-colors opacity-0 group-hover:opacity-100">
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-brand hover:border-brand/50 hover:bg-brand/10 transition-colors opacity-0 group-hover:opacity-100">
                         <Heart className="w-4 h-4" />
-                      </button>
+                      </div>
                     </Card>
                     
                     <div className="flex flex-col flex-1">
-                      <h3 className="text-base md:text-lg font-heading font-semibold text-white leading-tight mb-1 group-hover:text-blue-200 transition-colors line-clamp-2">
+                      <h3 className="text-base md:text-lg font-heading font-semibold text-white leading-tight mb-1 group-hover:text-brand-soft transition-colors line-clamp-2">
                         {book.title}
                       </h3>
                       <p className="text-sm text-white/50 font-light mb-2">{book.author}</p>
@@ -210,8 +209,7 @@ export function BookGrid() {
                       </div>
                     </div>
                   </div>
-                  }
-                />
+                </DialogTrigger>
                 
                 <BookModal book={book} />
               </Dialog>
@@ -226,7 +224,7 @@ export function BookGrid() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 text-center flex justify-center"
         >
-          <Button variant="outline" className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white h-12 px-8">
+          <Button variant="outline" className="rounded-full bg-transparent border-white/20 text-white hover:bg-brand/10 hover:border-brand hover:text-brand h-12 px-8 transition-colors">
             Load More Resources
           </Button>
         </motion.div>

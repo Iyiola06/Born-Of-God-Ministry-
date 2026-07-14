@@ -16,10 +16,10 @@ export function Vision() {
           referrerPolicy="no-referrer"
         />
         {/* Soft Glass Overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-brand-black/60 backdrop-blur-[2px]" />
         {/* Gradient fades for seamless integration */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-brand-black to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-brand-black to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-8 text-center">

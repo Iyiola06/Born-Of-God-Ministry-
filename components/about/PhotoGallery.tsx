@@ -13,7 +13,7 @@ const photos = [
 
 export function PhotoGallery() {
   return (
-    <section className="py-32 relative bg-black">
+    <section className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         <motion.div
@@ -48,7 +48,7 @@ export function PhotoGallery() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </motion.div>
           ))}
         </div>

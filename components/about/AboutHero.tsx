@@ -17,12 +17,12 @@ export function AboutHero() {
           referrerPolicy="no-referrer"
         />
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-black via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-brand-black/60 bg-gradient-to-t from-brand-black via-brand-black/40 to-brand-black/80" />
       </div>
 
       {/* Floating Light */}
       <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[150px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand/20 rounded-full blur-[150px]" />
       </div>
 
       {/* Content */}
@@ -53,16 +53,16 @@ export function AboutHero() {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-white/40 uppercase tracking-widest font-medium">Discover</span>
+        <span className="text-xs text-brand/40 uppercase tracking-widest font-medium">Discover</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-8 h-12 rounded-full border border-white/20 flex items-start justify-center p-2 backdrop-blur-sm"
+          className="w-8 h-12 rounded-full border border-brand/20 flex items-start justify-center p-2 backdrop-blur-sm"
         >
           <motion.div
             animate={{ height: ["20%", "40%", "20%"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 rounded-full bg-white/60"
+            className="w-1 rounded-full bg-brand/60"
           />
         </motion.div>
       </motion.div>

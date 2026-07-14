@@ -9,43 +9,43 @@ const ministries = [
     title: 'Pastoral Training',
     description: 'Equipping leaders with deep theological understanding and practical ministry skills.',
     icon: BookOpen,
-    color: 'from-blue-500/20 to-cyan-500/20',
+    color: 'from-brand/10 to-brand-light/10',
   },
   {
     title: 'Worship Arts',
     description: 'Creating atmospheres of divine encounter through music and creative expression.',
     icon: Music,
-    color: 'from-purple-500/20 to-pink-500/20',
+    color: 'from-brand-soft/10 to-brand/10',
   },
   {
     title: 'Youth & Young Adults',
     description: 'Raising a fiery generation passionate about Christ and cultural transformation.',
     icon: Users2,
-    color: 'from-orange-500/20 to-amber-500/20',
+    color: 'from-brand-light/10 to-brand/10',
   },
   {
     title: 'Outreach & Missions',
     description: 'Taking the gospel to the unreached and showing God\'s love practically.',
     icon: Globe,
-    color: 'from-green-500/20 to-emerald-500/20',
+    color: 'from-brand/10 to-brand-soft/10',
   },
   {
     title: 'Care & Counseling',
     description: 'Providing biblical guidance, healing, and support for life\'s challenges.',
     icon: HeartHandshake,
-    color: 'from-red-500/20 to-rose-500/20',
+    color: 'from-brand-soft/10 to-brand-light/10',
   },
   {
     title: 'Children\'s Ministry',
     description: 'Laying a strong biblical foundation for the youngest members of our family.',
     icon: Baby,
-    color: 'from-yellow-500/20 to-amber-500/20',
+    color: 'from-brand/10 to-brand/20',
   },
 ];
 
 export function Ministries() {
   return (
-    <section id="ministries" className="py-32 relative bg-black">
+    <section id="ministries" className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,8 +75,8 @@ export function Ministries() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${ministry.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-500">
-                    <ministry.icon className="w-6 h-6 text-white" />
+                  <div className="w-14 h-14 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-500">
+                    <ministry.icon className="w-6 h-6 text-brand" />
                   </div>
                   
                   <h3 className="text-xl font-heading font-semibold text-white mb-3">

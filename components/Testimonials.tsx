@@ -36,7 +36,7 @@ export function Testimonials() {
   const repeatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,8 +54,8 @@ export function Testimonials() {
       </div>
 
       <div className="relative flex overflow-x-hidden">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-black to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-black to-transparent z-10" />
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -67,12 +67,12 @@ export function Testimonials() {
               key={`${testimonial.id}-${index}`}
               className="w-[350px] md:w-[450px] shrink-0 p-8 rounded-3xl bg-white/5 border-white/10 backdrop-blur-xl relative"
             >
-              <Quote className="w-8 h-8 text-white/20 mb-6" />
+              <Quote className="w-8 h-8 text-brand/20 mb-6" />
               <p className="text-lg text-white/80 font-light leading-relaxed mb-8">
                 &quot;{testimonial.content}&quot;
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/10 flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand/20 to-white/5 border border-brand/20 flex items-center justify-center text-brand font-semibold">
                   {testimonial.name[0]}
                 </div>
                 <div>

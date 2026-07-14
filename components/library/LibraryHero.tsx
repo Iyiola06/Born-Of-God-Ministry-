@@ -29,8 +29,8 @@ export function LibraryHero() {
 
       {/* Floating Lights */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brand-soft/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Content */}
@@ -41,7 +41,7 @@ export function LibraryHero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
           <span className="text-xs font-medium text-white/80 uppercase tracking-widest">Free Digital Resources</span>
         </motion.div>
 
@@ -69,10 +69,10 @@ export function LibraryHero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full justify-center"
         >
-          <Button onClick={scrollToBooks} size="lg" className="rounded-full h-14 px-8 bg-white text-black hover:bg-white/90 text-base font-medium shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all hover:scale-105">
+          <Button onClick={scrollToBooks} size="lg" className="rounded-full h-14 px-8 bg-brand text-brand-charcoal hover:bg-brand-light text-base font-medium shadow-[0_4px_20px_rgba(244,196,0,0.3)] transition-all hover:scale-105">
             Browse Library
           </Button>
-          <Button size="lg" variant="outline" className="rounded-full h-14 px-8 bg-white/5 border-white/10 text-white hover:bg-white/10 hover:text-white backdrop-blur-md text-base font-medium transition-all hover:scale-105">
+          <Button size="lg" variant="outline" className="rounded-full h-14 px-8 bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-brand/50 hover:text-white backdrop-blur-md text-base font-medium transition-all hover:scale-105">
             Newest Books
           </Button>
         </motion.div>
@@ -94,7 +94,7 @@ export function LibraryHero() {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2"
       >
-        <button onClick={scrollToBooks} className="text-white/40 hover:text-white transition-colors animate-bounce">
+        <button onClick={scrollToBooks} className="text-brand/40 hover:text-brand transition-colors animate-bounce">
           <ArrowDown className="w-5 h-5" />
         </button>
       </motion.div>

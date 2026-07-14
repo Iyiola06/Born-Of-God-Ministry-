@@ -39,7 +39,7 @@ const values = [
 
 export function CoreValues() {
   return (
-    <section className="py-32 relative bg-black">
+    <section className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         <motion.div
@@ -75,7 +75,7 @@ export function CoreValues() {
                 
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-brand group-hover:border-brand group-hover:text-brand-charcoal transition-all duration-300">
                       <value.icon className="w-5 h-5" />
                     </div>
                     <h3 className="text-xl font-heading font-semibold text-white">

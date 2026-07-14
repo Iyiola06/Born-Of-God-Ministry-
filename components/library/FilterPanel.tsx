@@ -32,7 +32,7 @@ export function FilterPanel({ onClose }: { onClose: () => void }) {
               <Badge 
                 key={category} 
                 variant="outline" 
-                className="bg-white/5 border-white/10 text-white/70 hover:bg-white hover:text-black hover:border-white transition-colors cursor-pointer text-xs font-normal py-1.5 px-3"
+                className="bg-white/5 border-white/10 text-white/70 hover:bg-brand/10 hover:text-brand hover:border-brand/50 transition-colors cursor-pointer text-xs font-normal py-1.5 px-3"
               >
                 {category}
               </Badge>
@@ -46,7 +46,7 @@ export function FilterPanel({ onClose }: { onClose: () => void }) {
             {sorts.map((sort) => (
               <button
                 key={sort}
-                className="text-left text-sm text-white/70 hover:text-white py-1.5 px-3 rounded-lg hover:bg-white/5 transition-colors"
+                className="text-left text-sm text-white/70 hover:text-brand py-1.5 px-3 rounded-lg hover:bg-brand/10 transition-colors"
               >
                 {sort}
               </button>
@@ -56,12 +56,12 @@ export function FilterPanel({ onClose }: { onClose: () => void }) {
       </div>
       
       <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
-        <button className="text-sm text-white/50 hover:text-white transition-colors">
+        <button className="text-sm text-white/50 hover:text-brand transition-colors">
           Clear all filters
         </button>
         <button 
           onClick={onClose}
-          className="px-6 py-2 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-colors"
+          className="px-6 py-2 bg-brand text-brand-charcoal text-sm font-medium rounded-full hover:bg-brand-light transition-colors"
         >
           Apply Filters
         </button>

@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 
 export function CTA() {
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-blue-500/20 to-purple-500/20 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-brand-light/20 to-brand/20 rounded-full blur-[120px]" />
       </div>
 
       <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10 text-center">
@@ -33,10 +33,10 @@ export function CTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 bg-white text-black hover:bg-white/90 text-base font-medium shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all hover:scale-105 active:scale-95">
+            <Button size="lg" className="w-full sm:w-auto rounded-full h-14 px-8 bg-brand text-brand-charcoal hover:bg-brand-light text-base font-medium shadow-[0_4px_20px_rgba(244,196,0,0.3)] transition-all hover:scale-105 active:scale-95">
               Find a Church
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-14 px-8 bg-white/5 border-white/10 text-white hover:bg-white/10 hover:text-white backdrop-blur-md text-base font-medium transition-all hover:scale-105 active:scale-95">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full h-14 px-8 bg-white/5 border-white/10 text-white hover:bg-brand/10 hover:border-brand/50 hover:text-brand backdrop-blur-md text-base font-medium transition-all hover:scale-105 active:scale-95">
               Contact Us
             </Button>
           </div>

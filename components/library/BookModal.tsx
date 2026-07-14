@@ -24,7 +24,7 @@ export type Book = {
 
 export function BookModal({ book }: { book: Book }) {
   return (
-    <DialogContent className="max-w-4xl bg-black/95 border-white/10 p-0 overflow-hidden backdrop-blur-3xl rounded-[2rem] gap-0 border shadow-2xl">
+    <DialogContent className="max-w-4xl bg-brand-black/95 border-white/10 p-0 overflow-hidden backdrop-blur-3xl rounded-[2rem] gap-0 border shadow-2xl">
       <DialogTitle className="sr-only">{book.title}</DialogTitle>
       
       <div className="flex flex-col md:flex-row h-full max-h-[85vh] overflow-y-auto custom-scrollbar">
@@ -44,10 +44,10 @@ export function BookModal({ book }: { book: Book }) {
           </div>
           
           <div className="mt-8 flex items-center justify-center gap-4 w-full px-4">
-            <Button variant="outline" size="icon" className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 w-12 h-12">
+            <Button variant="outline" size="icon" className="rounded-full bg-transparent border-white/20 text-white hover:bg-brand/10 hover:text-brand hover:border-brand/50 w-12 h-12 transition-colors">
               <Heart className="w-5 h-5" />
             </Button>
-            <Button variant="outline" size="icon" className="rounded-full bg-transparent border-white/20 text-white hover:bg-white/10 w-12 h-12">
+            <Button variant="outline" size="icon" className="rounded-full bg-transparent border-white/20 text-white hover:bg-brand/10 hover:text-brand hover:border-brand/50 w-12 h-12 transition-colors">
               <Share2 className="w-5 h-5" />
             </Button>
           </div>
@@ -104,7 +104,7 @@ export function BookModal({ book }: { book: Book }) {
           </div>
 
           <div className="mt-auto pt-6 flex flex-col sm:flex-row items-center gap-4">
-            <Button className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-white/90 h-14 px-10 text-base font-semibold shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+            <Button className="w-full sm:w-auto rounded-full bg-brand text-brand-charcoal hover:bg-brand-light h-14 px-10 text-base font-semibold shadow-[0_4px_20px_rgba(244,196,0,0.3)] transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
               <Download className="w-5 h-5" />
               Download Free ({book.size})
             </Button>

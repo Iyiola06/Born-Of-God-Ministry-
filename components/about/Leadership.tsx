@@ -38,7 +38,7 @@ const leaders = [
 
 export function Leadership() {
   return (
-    <section className="py-32 relative bg-black">
+    <section className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         <motion.div
@@ -77,14 +77,14 @@ export function Leadership() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                 
                 {/* Hover Reveal Content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                   <p className="text-white/80 text-sm font-light leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {leader.bio}
                   </p>
-                  <Button variant="outline" size="sm" className="w-full bg-white/10 border-white/20 text-white hover:bg-white hover:text-black backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                  <Button variant="outline" size="sm" className="w-full bg-white/10 border-white/20 text-white hover:bg-brand hover:border-brand hover:text-brand-charcoal backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                     View Full Profile
                   </Button>
                 </div>
@@ -94,7 +94,7 @@ export function Leadership() {
                 <h3 className="text-xl font-heading font-semibold text-white mb-1">
                   {leader.name}
                 </h3>
-                <p className="text-sm text-white/50 uppercase tracking-wider font-medium">
+                <p className="text-sm text-brand uppercase tracking-wider font-medium">
                   {leader.role}
                 </p>
               </div>

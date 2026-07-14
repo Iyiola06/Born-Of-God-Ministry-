@@ -39,7 +39,7 @@ const milestones = [
 
 export function JourneyTimeline() {
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
       </div>
@@ -77,18 +77,18 @@ export function JourneyTimeline() {
                   className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Center Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-8 h-8 -ml-4 rounded-full bg-black border border-white/20 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                    <div className="w-2 h-2 rounded-full bg-white" />
+                  <div className="absolute left-4 md:left-1/2 w-8 h-8 -ml-4 rounded-full bg-brand-black border border-brand/50 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(244,196,0,0.2)]">
+                    <div className="w-2 h-2 rounded-full bg-brand" />
                   </div>
 
                   {/* Content Card */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16'}`}>
                     <Card className="p-8 rounded-3xl bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/[0.08] transition-colors overflow-hidden group">
                       <div className="flex items-center gap-4 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 group-hover:scale-110 transition-transform">
                           <milestone.icon className="w-5 h-5" />
                         </div>
-                        <span className="text-sm font-medium text-white/50 tracking-wider uppercase">
+                        <span className="text-sm font-medium text-brand/80 tracking-wider uppercase">
                           {milestone.year}
                         </span>
                       </div>

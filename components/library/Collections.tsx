@@ -10,35 +10,35 @@ const collections = [
     title: 'Leadership Essentials',
     description: 'Core manuals and guides for pastors, elders, and ministry leaders.',
     count: 24,
-    color: 'from-blue-600/40 to-blue-900/40',
+    color: 'from-brand/40 to-brand-black/80',
     image: 'https://picsum.photos/seed/col1/800/600',
   },
   {
     title: 'Prayer & Intercession',
     description: 'Resources to deepen your prayer life and prophetic intercession.',
     count: 18,
-    color: 'from-purple-600/40 to-purple-900/40',
+    color: 'from-brand-soft/40 to-brand-charcoal/80',
     image: 'https://picsum.photos/seed/col2/800/600',
   },
   {
     title: 'Christian Living',
     description: 'Practical wisdom for navigating modern life with biblical principles.',
     count: 45,
-    color: 'from-emerald-600/40 to-emerald-900/40',
+    color: 'from-brand-light/40 to-brand-black/80',
     image: 'https://picsum.photos/seed/col3/800/600',
   },
   {
     title: 'Pastoral Training Course',
     description: 'The official curriculum used in our global leadership institute.',
     count: 12,
-    color: 'from-amber-600/40 to-amber-900/40',
+    color: 'from-brand/50 to-brand-charcoal/90',
     image: 'https://picsum.photos/seed/col4/800/600',
   },
 ];
 
 export function Collections() {
   return (
-    <section className="py-24 relative bg-black">
+    <section className="py-24 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function Collections() {
               Popular Collections
             </h2>
           </div>
-          <button className="text-sm font-medium text-white/70 hover:text-white flex items-center gap-2 group transition-colors">
+          <button className="text-sm font-medium text-white/70 hover:text-brand flex items-center gap-2 group transition-colors">
             View all collections
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>

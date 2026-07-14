@@ -6,9 +6,9 @@ import { BookOpenText } from 'lucide-react';
 
 export function LibraryNewsletter() {
   return (
-    <section className="py-32 relative bg-black overflow-hidden">
+    <section className="py-32 relative bg-brand-black overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-brand-soft/30 to-brand/30 rounded-full blur-[150px]" />
       </div>
 
       <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10">
@@ -22,8 +22,8 @@ export function LibraryNewsletter() {
           {/* Subtle shine effect */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
           
-          <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto mb-8 shadow-inner">
-            <BookOpenText className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center mx-auto mb-8 shadow-inner">
+            <BookOpenText className="w-8 h-8 text-brand" />
           </div>
 
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-4">
@@ -38,10 +38,10 @@ export function LibraryNewsletter() {
             <input 
               type="email" 
               placeholder="Enter your email address" 
-              className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all backdrop-blur-md"
+              className="flex-1 bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-white/40 focus:outline-none focus:border-brand/50 focus:ring-1 focus:ring-brand/50 transition-all backdrop-blur-md"
               required
             />
-            <Button type="submit" className="rounded-full bg-white text-black hover:bg-white/90 h-[58px] px-8 font-medium text-base shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <Button type="submit" className="rounded-full bg-brand text-brand-charcoal hover:bg-brand-light h-[58px] px-8 font-medium text-base shadow-[0_4px_20px_rgba(244,196,0,0.3)]">
               Subscribe
             </Button>
           </form>
