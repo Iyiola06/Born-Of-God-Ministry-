@@ -19,9 +19,6 @@ export function Footer() {
                   <path d="M12 2v20M17 7l-5-5-5 5" />
                 </svg>
               </div>
-              <span className="text-lg font-heading font-semibold tracking-tight text-white">
-                BOG Ministries
-              </span>
             </Link>
             <p className="text-sm text-white/60 font-light mb-8 max-w-sm leading-relaxed">
               Equipping pastors globally and transforming lives through the love and power of Christ. A generation Born of God.

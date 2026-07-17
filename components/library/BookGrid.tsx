@@ -26,6 +26,51 @@ interface Book {
   format: string;
 }
 
+const DEFAULT_BOOKS: Book[] = [
+  {
+    id: 'b1',
+    title: 'Foundations of Faith',
+    author: 'Apostle John Doe',
+    category: 'Discipleship',
+    pages: 120,
+    downloads: '15.2k',
+    format: 'PDF',
+    description: 'A core guide to Christian faith.',
+    cover: 'https://picsum.photos/seed/faith/400/600',
+    language: 'English',
+    size: '2.4 MB',
+    date: 'Oct 2023'
+  },
+  {
+    id: 'b2',
+    title: 'The Prayer Driven Church',
+    author: 'Pastor Jane Doe',
+    category: 'Prayer',
+    pages: 210,
+    downloads: '8.4k',
+    format: 'EPUB',
+    description: 'Developing church-wide prayer strategy.',
+    cover: 'https://picsum.photos/seed/prayer/400/600',
+    language: 'English',
+    size: '1.8 MB',
+    date: 'Sep 2023'
+  },
+  {
+    id: 'b3',
+    title: 'Marriage By Design',
+    author: 'Rev. Mark Smith',
+    category: 'Marriage',
+    pages: 185,
+    downloads: '10.1k',
+    format: 'PDF',
+    description: 'Biblical guide to healthy relationships.',
+    cover: 'https://picsum.photos/seed/marriage/400/600',
+    language: 'English',
+    size: '3.1 MB',
+    date: 'Aug 2023'
+  }
+];
+
 export function BookGrid() {
   const [libraryBooks, setLibraryBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
@@ -39,12 +84,16 @@ export function BookGrid() {
           .order('created_at', { ascending: false });
           
         if (error) {
-          console.error('Error fetching books:', error);
+          console.warn('Error fetching books, using fallback data:', error.message || error);
+          setLibraryBooks(DEFAULT_BOOKS);
         } else if (data && data.length > 0) {
           setLibraryBooks(data as any);
+        } else {
+          setLibraryBooks(DEFAULT_BOOKS);
         }
-      } catch (e) {
-        console.error(e);
+      } catch (e: any) {
+        console.warn('Failed to fetch books, using fallback:', e);
+        setLibraryBooks(DEFAULT_BOOKS);
       } finally {
         setLoading(false);
       }

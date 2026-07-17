@@ -51,9 +51,6 @@ export function Navbar() {
               <path d="M12 2v20M17 7l-5-5-5 5" />
             </svg>
           </div>
-          <span className="text-xl font-heading font-semibold tracking-tight text-white drop-shadow-sm">
-            BOG Ministries
-          </span>
         </Link>
 
         {/* Desktop Nav */}
