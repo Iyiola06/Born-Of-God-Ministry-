@@ -1,46 +1,70 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Globe2, Users, Heart, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-
-const stats = [
-  {
-    id: 1,
-    name: 'Churches Worldwide',
-    value: '40+',
-    icon: MapPin,
-    description: 'A growing global family.',
-  },
-  {
-    id: 2,
-    name: 'Pastors Trained',
-    value: '100+',
-    icon: Users,
-    description: 'Equipping leaders globally.',
-  },
-  {
-    id: 3,
-    name: 'Lives Impacted',
-    value: '10k+',
-    icon: Heart,
-    description: 'Transforming communities.',
-  },
-  {
-    id: 4,
-    name: 'Countries Reached',
-    value: '12+',
-    icon: Globe2,
-    description: 'Spreading across borders.',
-  },
-];
+import { supabase } from '@/lib/supabase';
 
 export function GlobalImpact() {
+  const [statsData, setStatsData] = useState({
+    churches: '100+',
+    pastors: '100+',
+    lives: '10k+',
+    countries: '12+',
+  });
+
+  useEffect(() => {
+    async function fetchStats() {
+      const { data, error } = await supabase.from('homepage_content').select('*').eq('id', 1).single();
+      if (data && !error) {
+        setStatsData({
+          churches: data.stats_churches || '100+',
+          pastors: data.stats_pastors || '100+',
+          lives: data.stats_lives || '10k+',
+          countries: data.stats_countries || '12+'
+        });
+      }
+    }
+    fetchStats();
+  }, []);
+
+  const stats = [
+    {
+      id: 1,
+      name: 'Churches Worldwide',
+      value: statsData.churches,
+      icon: MapPin,
+      description: 'A growing global family.',
+    },
+    {
+      id: 2,
+      name: 'Pastors Trained',
+      value: statsData.pastors,
+      icon: Users,
+      description: 'Equipping leaders globally.',
+    },
+    {
+      id: 3,
+      name: 'Lives Impacted',
+      value: statsData.lives,
+      icon: Heart,
+      description: 'Transforming communities.',
+    },
+    {
+      id: 4,
+      name: 'Countries Reached',
+      value: statsData.countries,
+      icon: Globe2,
+      description: 'Spreading across borders.',
+    },
+  ];
+
   return (
     <section className="py-32 relative overflow-hidden bg-brand-black">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
-
+      
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

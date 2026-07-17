@@ -1,130 +1,57 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import { Download, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Download, Heart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
-import { BookModal, Book } from './BookModal';
+import { BookModal } from './BookModal';
+import { supabase } from '@/lib/supabase';
 
-const libraryBooks: Book[] = [
-  {
-    id: 'b1',
-    title: 'Foundations of Faith',
-    author: 'Apostle John Doe',
-    description: 'A beginner-friendly guide to understanding the core tenets of the Christian faith, salvation, and the new creation reality.',
-    cover: 'https://picsum.photos/seed/lib1/600/900',
-    category: 'Discipleship',
-    pages: 120,
-    language: 'English',
-    size: '1.8 MB',
-    downloads: '15.2k',
-    date: 'Jan 2022',
-    format: 'PDF',
-  },
-  {
-    id: 'b2',
-    title: 'The Prayer Driven Church',
-    author: 'Pastor Jane Doe',
-    description: 'Discover how to cultivate a culture of unceasing prayer within your local congregation and witness supernatural growth.',
-    cover: 'https://picsum.photos/seed/lib2/600/900',
-    category: 'Prayer',
-    pages: 210,
-    language: 'English',
-    size: '3.5 MB',
-    downloads: '8.4k',
-    date: 'Mar 2023',
-    format: 'EPUB',
-  },
-  {
-    id: 'b3',
-    title: 'Marriage By Design',
-    author: 'Rev. Mark Smith',
-    description: 'Biblical principles for a thriving, loving, and lasting marriage in today\'s complex world.',
-    cover: 'https://picsum.photos/seed/lib3/600/900',
-    category: 'Marriage',
-    pages: 185,
-    language: 'English',
-    size: '2.9 MB',
-    downloads: '10.1k',
-    date: 'Jun 2023',
-    format: 'PDF',
-  },
-  {
-    id: 'b4',
-    title: 'Youth on Fire',
-    author: 'Pastor Sarah Johnson',
-    description: 'A practical manual for youth pastors and leaders aiming to ignite a passion for Christ in the next generation.',
-    cover: 'https://picsum.photos/seed/lib4/600/900',
-    category: 'Youth',
-    pages: 150,
-    language: 'English',
-    size: '2.2 MB',
-    downloads: '6.7k',
-    date: 'Sep 2023',
-    format: 'PDF',
-  },
-  {
-    id: 'b5',
-    title: 'Healing Streams',
-    author: 'Apostle John Doe',
-    description: 'Understanding divine healing, walking in health, and ministering healing to those who are hurting.',
-    cover: 'https://picsum.photos/seed/lib5/600/900',
-    category: 'Healing',
-    pages: 195,
-    language: 'English',
-    size: '3.0 MB',
-    downloads: '11.5k',
-    date: 'Nov 2022',
-    format: 'EPUB',
-  },
-  {
-    id: 'b6',
-    title: 'Church Planting 101',
-    author: 'Rev. Mark Smith',
-    description: 'The complete toolkit for missionaries and pastors setting out to plant new, healthy churches globally.',
-    cover: 'https://picsum.photos/seed/lib6/600/900',
-    category: 'Church Growth',
-    pages: 320,
-    language: 'English',
-    size: '5.1 MB',
-    downloads: '4.2k',
-    date: 'Feb 2024',
-    format: 'PDF',
-  },
-  {
-    id: 'b7',
-    title: 'Daily Devotions Vol. 1',
-    author: 'Born Of God Ministries',
-    description: '365 days of inspiring, faith-building devotions to start your morning rooted in the Word.',
-    cover: 'https://picsum.photos/seed/lib7/600/900',
-    category: 'Devotionals',
-    pages: 380,
-    language: 'English',
-    size: '4.5 MB',
-    downloads: '22.8k',
-    date: 'Dec 2023',
-    format: 'PDF',
-  },
-  {
-    id: 'b8',
-    title: 'The Holy Spirit in You',
-    author: 'Pastor Jane Doe',
-    description: 'A deep dive into the person, work, and fellowship of the Holy Spirit in the life of a modern believer.',
-    cover: 'https://picsum.photos/seed/lib8/600/900',
-    category: 'Holy Spirit',
-    pages: 260,
-    language: 'English',
-    size: '3.8 MB',
-    downloads: '14.9k',
-    date: 'Apr 2023',
-    format: 'EPUB',
-  }
-];
+interface Book {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  cover: string;
+  category: string;
+  pages: number;
+  language: string;
+  size: string;
+  downloads: string;
+  date: string;
+  format: string;
+}
 
 export function BookGrid() {
+  const [libraryBooks, setLibraryBooks] = useState<Book[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBooks() {
+      try {
+        const { data, error } = await supabase
+          .from('books')
+          .select('*')
+          .order('created_at', { ascending: false });
+          
+        if (error) {
+          console.error('Error fetching books:', error);
+        } else if (data && data.length > 0) {
+          setLibraryBooks(data as any);
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBooks();
+  }, []);
+
   return (
     <section id="library-books" className="py-24 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -139,7 +66,7 @@ export function BookGrid() {
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">
               All Resources
             </h2>
-            <p className="text-white/50 text-sm mt-2">Showing 8 of 142 books</p>
+            <p className="text-white/50 text-sm mt-2">Showing {libraryBooks.length} books</p>
           </motion.div>
           
           <motion.div
@@ -158,7 +85,11 @@ export function BookGrid() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-          {libraryBooks.map((book, index) => (
+          {loading ? (
+             <div className="col-span-full text-white/60 flex justify-center py-10">Loading books...</div>
+          ) : libraryBooks.length === 0 ? (
+             <div className="col-span-full text-white/60 flex justify-center py-10">No books available yet.</div>
+          ) : libraryBooks.map((book, index) => (
             <motion.div
               key={book.id}
               initial={{ opacity: 0, y: 30 }}
@@ -171,7 +102,7 @@ export function BookGrid() {
                   <div className="group cursor-pointer flex flex-col h-full">
                     <Card className="relative aspect-[2/3] rounded-2xl overflow-hidden bg-white/5 border-white/10 mb-4 shadow-lg group-hover:shadow-[0_15px_30px_rgba(255,255,255,0.1)] transition-all duration-500">
                       <Image
-                        src={book.cover}
+                        src={book.cover || 'https://picsum.photos/seed/placeholder/600/900'}
                         alt={book.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -211,7 +142,13 @@ export function BookGrid() {
                   </div>
                 </DialogTrigger>
                 
-                <BookModal book={book} />
+                <BookModal book={{
+                  ...book,
+                  cover: book.cover || 'https://picsum.photos/seed/placeholder/600/900',
+                  language: book.language || 'English',
+                  size: book.size || 'Unknown',
+                  date: book.date || 'Unknown'
+                }} />
               </Dialog>
             </motion.div>
           ))}
@@ -228,7 +165,6 @@ export function BookGrid() {
             Load More Resources
           </Button>
         </motion.div>
-
       </div>
     </section>
   );

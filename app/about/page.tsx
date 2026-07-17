@@ -15,10 +15,10 @@ import { PhotoGallery } from '@/components/about/PhotoGallery';
 
 export const metadata: Metadata = {
   title: 'About Us | Born Of God Ministries',
-  description: 'Learn about Born Of God Ministries. We are a legally registered Christian ministry in Kenya, Africa, with over 40 churches across the world.',
+  description: 'Learn about Born Of God Ministries. We are a legally registered Christian ministry in Kenya, Africa, with over 100 churches across the world.',
   openGraph: {
     title: 'About Born Of God Ministries',
-    description: 'Learn about Born Of God Ministries. We are a legally registered Christian ministry in Kenya, Africa, with over 40 churches across the world.',
+    description: 'Learn about Born Of God Ministries. We are a legally registered Christian ministry in Kenya, Africa, with over 100 churches across the world.',
     url: 'https://bornofgodministries.org/about',
     siteName: 'Born Of God Ministries',
     images: [
@@ -51,7 +51,7 @@ const jsonLd = {
     '@id': 'https://bornofgodministries.org/about'
   },
   headline: 'Our Story - Born Of God Ministries',
-  description: 'Born Of God Ministries is a legally registered Christian ministry in Kenya, Africa, with over 40 churches across the world.',
+  description: 'Born Of God Ministries is a legally registered Christian ministry in Kenya, Africa, with over 100 churches across the world.',
   publisher: {
     '@type': 'Organization',
     name: 'Born Of God Ministries',

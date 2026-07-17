@@ -32,7 +32,7 @@ const milestones = [
   {
     year: 'Today',
     title: 'Worldwide Impact',
-    description: 'With over 40 churches worldwide, we continue to see thousands of lives transformed daily by the power of Christ.',
+    description: 'With over 100 churches worldwide, we continue to see thousands of lives transformed daily by the power of Christ.',
     icon: Sparkles,
   },
 ];

@@ -69,7 +69,7 @@ export function Welcome() {
                 Born Of God Ministries was founded with a divine mandate to raise a generation that truly knows their identity in Christ. We are more than just a church; we are a global family committed to excellence, love, and spiritual maturity.
               </p>
               <p>
-                Legally registered in Kenya, our roots are deep, but our branches reach across the world. From equipping hundreds of pastors to establishing over 40 churches globally, our mission is unwavering.
+                Legally registered as a Ministry in Kenya, Africa, our roots are deep, but our branches reach across the world. From teaching hundreds of Pastors to establishing over 100 churches globally, our mission is unwavering.
               </p>
             </div>
 

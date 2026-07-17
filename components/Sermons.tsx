@@ -1,37 +1,47 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Clock, Calendar } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { supabase } from '@/lib/supabase';
 
-const sermons = [
-  {
-    id: 1,
-    title: 'The Power of Sonship',
-    speaker: 'Apostle John Doe',
-    date: 'Oct 22, 2023',
-    duration: '45 mins',
-    youtubeId: 'dQw4w9WgXcQ', // Placeholder
-  },
-  {
-    id: 2,
-    title: 'Faith That Moves Mountains',
-    speaker: 'Pastor Jane Smith',
-    date: 'Oct 15, 2023',
-    duration: '52 mins',
-    youtubeId: 'dQw4w9WgXcQ', // Placeholder
-  },
-  {
-    id: 3,
-    title: 'Walking in Divine Purpose',
-    speaker: 'Apostle John Doe',
-    date: 'Oct 08, 2023',
-    duration: '60 mins',
-    youtubeId: 'dQw4w9WgXcQ', // Placeholder
-  },
-];
+interface Sermon {
+  id: number;
+  title: string;
+  speaker: string;
+  date: string;
+  duration: string;
+  youtubeId: string;
+}
 
 export function Sermons() {
+  const [sermons, setSermons] = useState<Sermon[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchSermons() {
+      try {
+        const { data, error } = await supabase
+          .from('sermons')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(3);
+          
+        if (error) {
+          console.error('Error fetching sermons:', error);
+        } else if (data && data.length > 0) {
+          setSermons(data as any);
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchSermons();
+  }, []);
+
   return (
     <section id="sermons" className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -64,7 +74,11 @@ export function Sermons() {
         </div>
 
         <div className="flex flex-col gap-6">
-          {sermons.map((sermon, index) => (
+          {loading ? (
+             <div className="text-white/60 flex justify-center py-10">Loading sermons...</div>
+          ) : sermons.length === 0 ? (
+             <div className="text-white/60 flex justify-center py-10">No sermons available yet.</div>
+          ) : sermons.map((sermon, index) => (
             <motion.div
               key={sermon.id}
               initial={{ opacity: 0, y: 20 }}
@@ -83,7 +97,6 @@ export function Sermons() {
                     allowFullScreen
                   />
                 </div>
-
                 {/* Details */}
                 <div className="flex-1 py-2 pr-4 w-full">
                   <h3 className="text-xl md:text-2xl font-heading font-semibold text-white mb-2 group-hover:text-brand-soft transition-colors">

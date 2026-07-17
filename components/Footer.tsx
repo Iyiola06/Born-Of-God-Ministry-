@@ -61,7 +61,7 @@ export function Footer() {
               <li><Link href="#" className="hover:text-brand transition-colors">United States</Link></li>
               <li><Link href="#" className="hover:text-brand transition-colors">United Kingdom</Link></li>
               <li><Link href="#" className="hover:text-brand transition-colors">South Africa</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">View All 40+</Link></li>
+              <li><Link href="#" className="hover:text-brand transition-colors">View All 100+</Link></li>
             </ul>
           </div>
 

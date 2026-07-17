@@ -8,7 +8,7 @@ const spaceGrotesk = Space_Grotesk({subsets:['latin'],variable:'--font-heading'}
 
 export const metadata: Metadata = {
   title: 'Born Of God Ministries',
-  description: 'Raising a Generation Born of God. Over 40 churches worldwide equipping pastors globally and transforming lives through Christ.',
+  description: 'Raising a Generation Born of God. Over 100 churches worldwide teaching hundreds of Pastors globally and transforming lives through Christ.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

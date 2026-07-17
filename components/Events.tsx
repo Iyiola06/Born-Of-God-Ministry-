@@ -1,40 +1,36 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Calendar as CalendarIcon, Clock, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/lib/supabase';
 
-const events = [
-  {
-    id: 1,
-    title: 'Global Leaders Conference 2024',
-    date: 'Nov 15, 2024',
-    time: '09:00 AM - 05:00 PM',
-    location: 'Nairobi, Kenya & Online',
-    description: 'An intensive 3-day conference for pastors and ministry leaders to be equipped for the next frontier of global revival.',
-    isMajor: true,
-  },
-  {
-    id: 2,
-    title: 'Night of Worship',
-    date: 'Dec 01, 2024',
-    time: '06:00 PM - 09:00 PM',
-    location: 'Main Campus',
-    description: 'Join us for an extended time of unhindered worship and seeking the face of God.',
-    isMajor: false,
-  },
-  {
-    id: 3,
-    title: 'Youth Arise Summit',
-    date: 'Jan 12, 2025',
-    time: '10:00 AM - 04:00 PM',
-    location: 'Youth Center',
-    description: 'Empowering the next generation to stand firm in their faith and impact their culture.',
-    isMajor: false,
-  },
-];
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  is_major: boolean;
+}
 
 export function Events() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchEvents() {
+      const { data, error } = await supabase.from('events').select('*').order('date', { ascending: true });
+      if (data && !error && data.length > 0) {
+        setEvents(data);
+      }
+      setLoading(false);
+    }
+    fetchEvents();
+  }, []);
+
   return (
     <section id="events" className="py-32 relative bg-brand-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -56,7 +52,11 @@ export function Events() {
         </div>
 
         <div className="relative border-l border-white/10 ml-4 md:ml-8 space-y-12 pb-8">
-          {events.map((event, index) => (
+          {loading ? (
+             <div className="text-white/60 pl-8 md:pl-16">Loading events...</div>
+          ) : events.length === 0 ? (
+             <div className="text-white/60 pl-8 md:pl-16">No upcoming events found.</div>
+          ) : events.map((event, index) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, x: -20 }}
@@ -69,7 +69,7 @@ export function Events() {
               <div className="absolute top-0 -left-[5px] w-2.5 h-2.5 rounded-full bg-brand shadow-[0_0_10px_rgba(244,196,0,0.8)]" />
               
               <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl hover:bg-white/[0.08] transition-colors relative overflow-hidden group">
-                {event.isMajor && (
+                {event.is_major && (
                   <div className="absolute top-0 right-0 bg-brand text-brand-charcoal text-xs font-bold px-4 py-1 rounded-bl-2xl uppercase tracking-wider">
                     Major Event
                   </div>

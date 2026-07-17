@@ -1,17 +1,43 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Play } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export function Hero() {
+  const [content, setContent] = useState({
+    headline: 'Raising a Generation Born of God.',
+    subheadline: 'Equipping pastors globally and transforming lives through the love and power of Christ.',
+    imageUrl: 'https://picsum.photos/seed/worship10/1920/1080'
+  });
+
+  useEffect(() => {
+    async function fetchHero() {
+      const { data, error } = await supabase.from('homepage_content').select('*').eq('id', 1).single();
+      if (data && !error) {
+        setContent({
+          headline: data.hero_headline || 'Raising a Generation Born of God.',
+          subheadline: data.hero_subheadline || 'Equipping pastors globally and transforming lives through the love and power of Christ.',
+          imageUrl: data.hero_image_url || 'https://picsum.photos/seed/worship10/1920/1080'
+        });
+      }
+    }
+    fetchHero();
+  }, []);
+
+  // Split headline for styling
+  const splitHeadline = content.headline.split('Born of God.');
+  const firstPart = splitHeadline[0];
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://picsum.photos/seed/worship10/1920/1080"
+          src={content.imageUrl}
           alt="Worship background"
           fill
           className="object-cover"
@@ -37,7 +63,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
         >
           <span className="flex w-2 h-2 rounded-full bg-brand animate-pulse" />
-          <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Over 40 Churches Worldwide</span>
+          <span className="text-sm font-medium text-white/90 tracking-wide uppercase">Over 100 Churches Worldwide</span>
         </motion.div>
 
         <motion.h1
@@ -46,10 +72,12 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white tracking-tighter max-w-5xl leading-[1.1]"
         >
-          Raising a Generation <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">
-            Born of God.
-          </span>
+          {firstPart} <br className="hidden md:block" />
+          {splitHeadline.length > 1 && (
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">
+              Born of God.
+            </span>
+          )}
         </motion.h1>
 
         <motion.p
@@ -58,7 +86,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-8 text-lg md:text-xl text-white/70 max-w-2xl font-light"
         >
-          Equipping pastors globally and transforming lives through the love and power of Christ.
+          {content.subheadline}
         </motion.p>
 
         <motion.div

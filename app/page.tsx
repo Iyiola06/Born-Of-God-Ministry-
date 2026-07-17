@@ -12,7 +12,7 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Born Of God Ministries | Raising a Generation',
-  description: 'Born Of God Ministries is a global family equipping pastors and transforming lives. Over 40 churches worldwide.',
+  description: 'Born Of God Ministries is a global family teaching hundreds of Pastors and transforming lives. Over 100 churches worldwide.',
   openGraph: {
     title: 'Born Of God Ministries',
     description: 'Raising a Generation Born of God. Equipping pastors globally and transforming lives through Christ.',
@@ -46,7 +46,7 @@ const jsonLd = {
   name: 'Born Of God Ministries',
   url: 'https://bornofgodministries.org',
   logo: 'https://bornofgodministries.org/logo.png',
-  description: 'Raising a Generation Born of God. Over 40 churches worldwide equipping pastors globally.',
+  description: 'Raising a Generation Born of God. Over 100 churches worldwide teaching hundreds of Pastors globally.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Nairobi',
